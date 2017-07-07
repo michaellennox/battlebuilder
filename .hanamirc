@@ -1,0 +1,4 @@
+project=battlebuilder
+architecture=container
+test=rspec
+template=slim
