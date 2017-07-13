@@ -3,3 +3,7 @@
 #
 # Example:
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
+
+root to: 'grand_alliances#index'
+
+get '/grand_alliances', to: 'grand_alliances#index'
