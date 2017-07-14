@@ -12,10 +12,10 @@ RSpec.describe Seeds::CreateGrandAlliances do
 
   context 'when all grand alliances already exist' do
     before do
-      allow(repository).to receive(:find).with('Order').and_return(instance_double GrandAlliance)
-      allow(repository).to receive(:find).with('Chaos').and_return(instance_double GrandAlliance)
-      allow(repository).to receive(:find).with('Destruction').and_return(instance_double GrandAlliance)
-      allow(repository).to receive(:find).with('Death').and_return(instance_double GrandAlliance)
+      allow(repository).to receive(:find).with('Order').and_return(FactoryGirl.build(:grand_alliance, :order))
+      allow(repository).to receive(:find).with('Chaos').and_return(FactoryGirl.build(:grand_alliance, :chaos))
+      allow(repository).to receive(:find).with('Destruction').and_return(FactoryGirl.build(:grand_alliance, :destruction))
+      allow(repository).to receive(:find).with('Death').and_return(FactoryGirl.build(:grand_alliance, :death))
     end
 
     it 'creates no grand alliance records' do
@@ -27,8 +27,8 @@ RSpec.describe Seeds::CreateGrandAlliances do
 
   context 'when some grand alliances already exist' do
     before do
-      allow(repository).to receive(:find).with('Order').and_return(instance_double GrandAlliance)
-      allow(repository).to receive(:find).with('Chaos').and_return(instance_double GrandAlliance)
+      allow(repository).to receive(:find).with('Order').and_return(FactoryGirl.build(:grand_alliance, :order))
+      allow(repository).to receive(:find).with('Chaos').and_return(FactoryGirl.build(:grand_alliance, :chaos))
     end
 
     it 'creates the missing grand alliance records' do
