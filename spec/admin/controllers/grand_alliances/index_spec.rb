@@ -8,8 +8,8 @@ RSpec.describe Admin::Controllers::GrandAlliances::Index do
 
   let(:grand_alliances) do
     [
-      double(GrandAlliance, name: 'Chaos'),
-      double(GrandAlliance, name: 'Order')
+      FactoryGirl.build(:grand_alliance, :order),
+      FactoryGirl.build(:grand_alliance, :chaos)
     ]
   end
   let(:grand_alliance_repository) do

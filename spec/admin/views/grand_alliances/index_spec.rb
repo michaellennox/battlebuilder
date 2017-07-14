@@ -9,10 +9,10 @@ RSpec.describe Admin::Views::GrandAlliances::Index do
 
   let(:grand_alliances) do
     [
-      double(GrandAlliance, name: 'Chaos'),
-      double(GrandAlliance, name: 'Order'),
-      double(GrandAlliance, name: 'Destruction'),
-      double(GrandAlliance, name: 'Death')
+      FactoryGirl.build(:grand_alliance, :order),
+      FactoryGirl.build(:grand_alliance, :chaos),
+      FactoryGirl.build(:grand_alliance, :destruction),
+      FactoryGirl.build(:grand_alliance, :death)
     ]
   end
 
