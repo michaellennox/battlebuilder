@@ -1,13 +1,21 @@
 doctype html
-html
+html lang='en'
   head
-    title
-      | Admin
+    title Admin
     = favicon
     
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'
+    
     = bootstrap_stylesheet
+    = stylesheet 'application'
   body
-    = yield
+    = render partial: 'shared/navbar'
+    .container-fluid
+      .row
+        = render partial: 'shared/sidebar'
+        main.col-sm-9.offset-sm-3.col-md-10.offset-md-2.pt-3
+          = yield
     
     = jquery_script
     = tether_script
