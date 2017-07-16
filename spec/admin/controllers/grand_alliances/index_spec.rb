@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative '../../../../apps/admin/controllers/grand_alliances/index'
 
 RSpec.describe Admin::Controllers::GrandAlliances::Index do
   let(:action) { described_class.new }

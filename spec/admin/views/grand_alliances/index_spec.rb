@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative '../../../../apps/admin/views/grand_alliances/index'
 
 RSpec.describe Admin::Views::GrandAlliances::Index do
   let(:exposures) { Hash[grand_alliances: grand_alliances] }
