@@ -6,4 +6,4 @@
 
 root to: 'grand_alliances#index'
 
-get '/grand_alliances', to: 'grand_alliances#index'
+resources :grand_alliances, only: [:index]
