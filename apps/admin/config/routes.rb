@@ -6,4 +6,4 @@
 root to: 'grand_alliances#index'
 
 resources :grand_alliances, only: [:index]
-resources :armies, only: [:index, :new, :create]
+resources :armies, only: [:index, :new, :create, :destroy]
