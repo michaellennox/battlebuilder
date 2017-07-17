@@ -1,0 +1,32 @@
+form#army-filters method='GET'
+
+h1 Armies
+
+.container
+  .row
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Grand Alliance Name
+          th Actions
+        tr
+          td
+          td
+            select.custom-select.form-control-sm name='grand_alliance_name' form='army-filters'
+              - grand_alliances.each do |grand_alliance|
+                option= grand_alliance.name
+          td
+            button.btn.btn-secondary.btn-sm type='submit' form='army-filters' Filter
+      tbody#armies
+        - armies.each do |army|
+          tr
+            th scope='row'= army.name
+            td= army.grand_alliance_name
+            td
+              = link_to 'Edit', routes.edit_army_path(army.id), class: 'btn btn-primary btn-sm', role: 'button'
+              = form_for :army, routes.army_path(army.id), method: :delete, id: "edit-army-form-#{army.id}" do
+                - submit 'Delete', class: 'btn btn-danger btn-sm'
+  
+  .row
+    = link_to 'New Army', routes.new_army_path, class: 'btn btn-primary', role: 'button'
