@@ -1,6 +1,6 @@
 require 'features_helper'
 
-describe 'Visit armies' do
+describe 'Reading the army list' do
   let(:repository) { ArmyRepository.new }
 
   before do

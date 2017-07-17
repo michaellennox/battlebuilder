@@ -1,16 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Admin::Controllers::Armies::Index do
+RSpec.describe Admin::Controllers::Armies::New do
   let(:action) { described_class.new }
   let(:params) { Hash[] }
-
-  let(:army_repository) { instance_double(ArmyRepository, all: armies) }
-  let(:armies) do
-    [
-      FactoryGirl.build(:army, name: 'Stormcast Eternals'),
-      FactoryGirl.build(:army, name: 'Fyreslayers')
-    ]
-  end
 
   let(:grand_alliance_repository) { instance_double(GrandAllianceRepository, all: grand_alliances)}
   let(:grand_alliances) do
@@ -21,7 +13,6 @@ RSpec.describe Admin::Controllers::Armies::Index do
   end
 
   before do
-    allow(ArmyRepository).to receive(:new).and_return(army_repository)
     allow(GrandAllianceRepository).to receive(:new).and_return(grand_alliance_repository)
   end
 
@@ -30,12 +21,7 @@ RSpec.describe Admin::Controllers::Armies::Index do
     expect(response[0]).to eq 200
   end
 
-  it 'exposes the armies' do
-    action.call(params)
-    expect(action.exposures[:armies]).to eq armies
-  end
-
-  it 'exposes the grand_alliances' do
+  it 'exposes all grand alliances' do
     action.call(params)
     expect(action.exposures[:grand_alliances]).to eq grand_alliances
   end

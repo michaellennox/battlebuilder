@@ -1,0 +1,16 @@
+h1 New Army
+
+- unless params.valid?
+  = render partial: 'shared/error_messages', locals: { error_messages: params.error_messages }
+
+.container
+  = form_for :army, routes.armies_path do
+    - div class: 'form-group' do
+      - label :grand_alliance_name
+      - select :grand_alliance_name, grand_alliance_names, class: 'form-control'
+
+    - div class: 'form-group' do
+      - label 'Army Name', for: :name
+      - text_field :name, class: 'form-control'
+
+    - submit 'Create Army', class: 'btn btn-primary'

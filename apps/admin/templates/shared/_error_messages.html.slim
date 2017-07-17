@@ -1,0 +1,5 @@
+div.alert.alert-danger role='alert'
+  strong Please check your submission and try again
+  ul
+    - error_messages.each do |message|
+      li= message

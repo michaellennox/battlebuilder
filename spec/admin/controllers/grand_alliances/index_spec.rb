@@ -3,7 +3,6 @@ require 'spec_helper'
 RSpec.describe Admin::Controllers::GrandAlliances::Index do
   let(:action) { described_class.new }
   let(:params) { Hash[] }
-  let(:exposures) { action.exposures }
 
   let(:grand_alliances) do
     [
@@ -28,6 +27,6 @@ RSpec.describe Admin::Controllers::GrandAlliances::Index do
 
   it 'exposes the grand alliances' do
     action.call(params)
-    expect(exposures[:grand_alliances]).to eq grand_alliances
+    expect(action.exposures[:grand_alliances]).to eq grand_alliances
   end
 end

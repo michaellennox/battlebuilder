@@ -37,3 +37,7 @@ h1 {
 .sidebar .nav-link {
   border-radius: 0;
 }
+
+.alert ul {
+  margin-bottom: 0;
+}
