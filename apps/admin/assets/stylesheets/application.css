@@ -41,3 +41,7 @@ h1 {
 .alert ul {
   margin-bottom: 0;
 }
+
+table form {
+  display: inline;
+}

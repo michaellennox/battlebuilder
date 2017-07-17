@@ -24,7 +24,8 @@ h1 Armies
             th scope='row'= army.name
             td= army.grand_alliance_name
             td
-              = form_for :army, routes.army_path(army.id), method: :delete do
+              = link_to 'Edit', routes.edit_army_path(army.id), class: 'btn btn-primary btn-sm', role: 'button'
+              = form_for :army, routes.army_path(army.id), method: :delete, id: "edit-army-form-#{army.id}" do
                 - submit 'Delete', class: 'btn btn-danger btn-sm'
   
   .row
