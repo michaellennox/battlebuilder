@@ -20,7 +20,7 @@ module Admin::Controllers::Armies
       grand_alliance_name = params[:grand_alliance_name]
 
       if grand_alliance_name
-        army_repository.find_by_grand_alliance_name(grand_alliance_name)
+        army_repository.all_by_grand_alliance_name(grand_alliance_name)
       else
         army_repository.all
       end

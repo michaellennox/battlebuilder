@@ -1,5 +1,9 @@
 class ArmyRepository < Hanami::Repository
-  def find_by_grand_alliance_name(grand_alliance_name)
+  associations do
+    has_many :warscrolls
+  end
+
+  def all_by_grand_alliance_name(grand_alliance_name)
     armies
       .where(grand_alliance_name: grand_alliance_name)
       .as(:entity)

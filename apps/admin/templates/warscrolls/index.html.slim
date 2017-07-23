@@ -1,0 +1,29 @@
+form#warscroll-filters method='GET'
+
+h1 Warscrolls
+
+.container
+  .row
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Army Name
+          th Actions
+        tr
+          td
+          td
+            select.custom-select.form-control-sm name='army_id' form='warscroll-filters'
+              - armies.each do |army|
+                option value="#{army.id}"= army.name
+          td
+            button.btn.btn-secondary.btn-sm type='submit' form='warscroll-filters' Filter
+      tbody#warscrolls
+        - warscrolls.each do |warscroll|
+          tr
+            th scope='row'= warscroll.name
+            td= warscroll.army.name
+            td
+  
+  .row
+    = link_to 'New Army', routes.new_army_path, class: 'btn btn-primary', role: 'button'

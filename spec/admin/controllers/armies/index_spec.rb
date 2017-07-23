@@ -30,13 +30,36 @@ RSpec.describe Admin::Controllers::Armies::Index do
     expect(response[0]).to eq 200
   end
 
-  it 'exposes the armies' do
-    action.call(params)
-    expect(action.exposures[:armies]).to eq armies
-  end
-
   it 'exposes the grand_alliances' do
     action.call(params)
     expect(action.exposures[:grand_alliances]).to eq grand_alliances
+  end
+
+  context 'when params are blank' do
+    it 'exposes all armies' do
+      action.call(params)
+      expect(action.exposures[:armies]).to eq armies
+    end
+  end
+
+  context 'when params include a grand alliance name' do
+    let(:params) { Hash[grand_alliance_name: 'Order'] }
+    let(:filtered_armies) do
+      [
+        FactoryGirl.build(:army, name: 'Fyreslayers')
+      ]
+    end
+
+    before do
+      allow(army_repository)
+        .to receive(:all_by_grand_alliance_name)
+        .with('Order')
+        .and_return(filtered_armies)
+    end
+
+    it 'exposes filtered armies' do
+      action.call(params)
+      expect(action.exposures[:armies]).to eq filtered_armies
+    end
   end
 end
