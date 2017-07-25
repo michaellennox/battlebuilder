@@ -24,6 +24,7 @@ h1 Warscrolls
             th scope='row'= warscroll.name
             td= warscroll.army.name
             td
+              = link_to 'Edit', routes.edit_warscroll_path(warscroll.id), class: 'btn btn-primary btn-sm', role: 'button'
   
   .row
     = link_to 'New Warscroll', routes.new_warscroll_path, class: 'btn btn-primary', role: 'button'
