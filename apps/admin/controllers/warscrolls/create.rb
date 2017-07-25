@@ -5,10 +5,7 @@ module Admin::Controllers::Warscrolls
     expose :armies
 
     params do
-      required(:warscroll).schema do
-        required(:army_id).filled(:str?)
-        required(:name).filled(:str?)
-      end
+      required(:warscroll).schema(Admin::Schemas::WarscrollParams)
     end
 
     def initialize(

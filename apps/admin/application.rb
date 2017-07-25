@@ -19,6 +19,7 @@ module Admin
       # When you add new directories, remember to add them here.
       #
       load_paths << [
+        'schemas',
         'controllers',
         'views'
       ]
