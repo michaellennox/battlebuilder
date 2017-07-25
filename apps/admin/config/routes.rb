@@ -7,4 +7,4 @@ root to: 'grand_alliances#index'
 
 resources :grand_alliances, only: [:index]
 resources :armies, except: [:show]
-resources :warscrolls, except: [:show, :destroy]
+resources :warscrolls, except: [:show]
