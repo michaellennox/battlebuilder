@@ -9,7 +9,7 @@ RSpec.describe Admin::Controllers::Warscrolls::Show do
 
   before do
     allow(warscroll_repository)
-      .to receive(:find)
+      .to receive(:find_with_army)
       .with(warscroll.id)
       .and_return(warscroll)
   end

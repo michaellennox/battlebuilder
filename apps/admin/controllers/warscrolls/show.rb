@@ -9,7 +9,7 @@ module Admin::Controllers::Warscrolls
     end
 
     def call(params)
-      @warscroll = warscroll_repository.find(params[:id])
+      @warscroll = warscroll_repository.find_with_army(params[:id])
     end
 
     private
