@@ -21,7 +21,8 @@ h1 Warscrolls
       tbody#warscrolls
         - warscrolls.each do |warscroll|
           tr
-            th scope='row'= warscroll.name
+            th scope='row'
+              = link_to warscroll.name, routes.warscroll_path(warscroll.id)
             td= warscroll.army.name
             td
               = link_to 'Edit', routes.edit_warscroll_path(warscroll.id), class: 'btn btn-primary btn-sm', role: 'button'

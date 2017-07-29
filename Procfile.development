@@ -1,0 +1,2 @@
+web: bundle exec hanami serve
+admin_assets: cd apps/admin && yarn watch

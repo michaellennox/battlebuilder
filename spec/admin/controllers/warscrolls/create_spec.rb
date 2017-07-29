@@ -8,7 +8,7 @@ RSpec.describe Admin::Controllers::Warscrolls::Create do
     )
   end
 
-  let(:warscroll_repository) { instance_double(WarscrollRepository, create: nil) }
+  let(:warscroll_repository) { instance_double(WarscrollRepository, create: Warscroll.new(id: SecureRandom.uuid)) }
 
   let(:army_repository) { instance_double(ArmyRepository, all: armies) }
   let(:armies) do
