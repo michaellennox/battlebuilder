@@ -4,6 +4,22 @@ RSpec.describe WarscrollRepository do
   let(:warscroll_repository) { WarscrollRepository.new }
   let(:army_repository) { ArmyRepository.new }
 
+  describe '#find_with_army' do
+    it 'returns the warscroll with its associated army' do
+      sce = army_repository.create(FactoryGirl.build(:army, name: 'Stormcast Eternals'))
+      liberators = warscroll_repository.create(
+        FactoryGirl.build(:warscroll, army_id: sce.id, name: 'Liberators')
+      )
+
+      result = warscroll_repository.find_with_army(liberators.id)
+
+      aggregate_failures do
+        expect(result).to eq(liberators)
+        expect(result.army).to eq(sce)
+      end
+    end
+  end
+
   describe '#all_with_army' do
     it 'returns all warscrolls with their relevant army as entities' do
       sce = army_repository.create(FactoryGirl.build(:army, name: 'Stormcast Eternals'))
