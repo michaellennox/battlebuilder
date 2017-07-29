@@ -1,0 +1,32 @@
+form#warscroll-filters method='GET'
+
+h1 Warscrolls
+
+.container
+  .row
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Army Name
+          th Actions
+        tr
+          td
+          td
+            select.custom-select.form-control-sm name='army_id' form='warscroll-filters'
+              - armies.each do |army|
+                option value="#{army.id}"= army.name
+          td
+            button.btn.btn-secondary.btn-sm type='submit' form='warscroll-filters' Filter
+      tbody#warscrolls
+        - warscrolls.each do |warscroll|
+          tr
+            th scope='row'= warscroll.name
+            td= warscroll.army.name
+            td
+              = link_to 'Edit', routes.edit_warscroll_path(warscroll.id), class: 'btn btn-primary btn-sm', role: 'button'
+              = form_for :warscroll, routes.warscroll_path(warscroll.id), method: :delete, id: "delete-warscroll-form-#{warscroll.id}" do
+                - submit 'Delete', class: 'btn btn-danger btn-sm'
+  
+  .row
+    = link_to 'New Warscroll', routes.new_warscroll_path, class: 'btn btn-primary', role: 'button'

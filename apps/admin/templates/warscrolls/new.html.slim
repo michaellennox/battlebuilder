@@ -1,0 +1,16 @@
+h1 New Warscroll
+
+- unless params.valid?
+  = render partial: 'shared/error_messages', locals: { error_messages: params.error_messages }
+
+.container
+  = form_for :warscroll, routes.warscrolls_path do
+    - div class: 'form-group' do
+      - label 'Army Name', for: :army_id
+      - select :army_id, army_names, class: 'form-control'
+
+    - div class: 'form-group' do
+      - label 'Warscroll Name', for: :name
+      - text_field :name, class: 'form-control'
+
+    - submit 'Create Warscroll', class: 'btn btn-primary'
