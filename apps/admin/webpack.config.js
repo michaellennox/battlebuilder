@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var appName = 'warscroll_manager.js';
-var entryPoint = './src/warscroll_manager.js';
+var entryPoint = path.resolve(__dirname, './src/warscroll_manager.js');
 var exportPath = path.resolve(__dirname, './build');
 
 var plugins = [];
