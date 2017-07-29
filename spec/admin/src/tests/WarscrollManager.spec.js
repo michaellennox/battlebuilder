@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import WarscrollManager from '../../../../apps/admin/src/WarscrollManager.vue'
+import WarscrollManager from '@/WarscrollManager.vue'
 
 describe('WarscrollManager.vue', () => {
   it('should render the warscroll name', () => {
