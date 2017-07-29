@@ -18,9 +18,9 @@ module Admin::Controllers::Warscrolls
 
     def call(params)
       if params.valid?
-        warscroll_repository.create(params[:warscroll])
+        warscroll = warscroll_repository.create(params[:warscroll])
 
-        redirect_to routes.warscrolls_path
+        redirect_to routes.warscroll_path(warscroll.id)
       end
 
       @armies = army_repository.all

@@ -157,7 +157,8 @@ module Admin
         # Specify sources for assets
         #
         sources << [
-          'assets'
+          'assets',
+          'build'
         ]
       end
 
@@ -239,7 +240,7 @@ module Admin
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' https://maxcdn.bootstrapcdn.com https://code.jquery.com https://cdnjs.cloudflare.com;
+        script-src 'self' https://maxcdn.bootstrapcdn.com https://code.jquery.com https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';
         connect-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
